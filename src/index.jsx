@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 
 //import remoteActionMiddleware from './remote_action_middleware';
 import App      from './components/App';
-import LayoutContainer   from './components/Layout';
+//import Layout from './components/Layout';
 import Reducer  from './reducer/Reducer';
 
 //const socket = io(`${location.protocol}//${location.hostname}:8090`);
@@ -18,8 +18,8 @@ import Reducer  from './reducer/Reducer';
 //const store = createStoreWithMiddleware(reducer);
 const store = createStore(Reducer);
 
-const routes = <Route component={App}>
-  <Route path='/' component={LayoutContainer}></Route>
+const routes = <Route >
+  <Route path='/' component={App}></Route>
   </Route>;
 
 ReactDOM.render(
