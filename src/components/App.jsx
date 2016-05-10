@@ -13,7 +13,12 @@ const muiTheme = getMuiTheme({
 
 class App extends React.Component {
   componentDidMount() {
-    console.log('---------------App');
+    apiUtil.do('Get', 'http://localhost:7979/api/data')
+      .then(function(result){
+        console.log('--------------- result', result) 
+      }, function(err){
+        console.log('--------------- helloworld', err) 
+      })
   }
   render() {
     return (
