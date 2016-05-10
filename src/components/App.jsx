@@ -5,13 +5,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {deepOrange500} from 'material-ui/styles/colors';
 import GridList from 'material-ui/GridList';
 
-//export default React.createClass({
-  //render: function(){
-    //return this.props.children;
-
-  //}
-//});
-
 const muiTheme = getMuiTheme({
     palette: { accent1Color: deepOrange500, },
 });

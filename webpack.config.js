@@ -11,10 +11,9 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,          
       exclude: /node_modules/,
-      //loader: 'react-hot!babel',
       loader: combineLoaders([
           {
-            loader: 'react-hot',
+            loader: 'react-hot!babel',
           },
           {
             loader: 'babel-loader',
