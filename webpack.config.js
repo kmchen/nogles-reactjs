@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-//var HtmlWebpackPlugin = require('html-webpack-plugin');
+var combineLoaders = require('webpack-combine-loaders');
 
 module.exports = {
   entry: [
@@ -11,7 +11,17 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,          
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      //loader: 'react-hot!babel',
+      loader: combineLoaders([
+          {
+            loader: 'react-hot',
+          },
+          {
+            loader: 'babel-loader',
+            query: {
+              presets: ['es2015', 'react']
+            },
+          }])
     },
     { test: /\.css$/,
       loader: 'style!css!autoprefixer?browsers=last 2 versions'
