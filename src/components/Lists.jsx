@@ -4,6 +4,7 @@ import ChevronRight     from 'material-ui/svg-icons/navigation/chevron-right';
 
 class Lists extends React.Component {
    render() {
+     console.log('--------- list data ------', this.props)
      return (
        <List style={styles}>
          <ListItem primaryText="Inbox" rightIcon={<ChevronRight />}/>

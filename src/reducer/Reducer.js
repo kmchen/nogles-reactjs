@@ -37,12 +37,19 @@ function resetVote(state){
   return state
 }
 
+function process(state, data){
+  if (data) {
+    return state.set('data', data);
+  }
+  return state;
+}
+
 export default function Reducer(state = Map(), action) {
   switch(action.type) {
     case 'SET_STATE' :
       return resetVote(setState(state, action.state))
-    case 'VOTE' :
-      return vote(state, action.entry)
+    case 'FETCH' :
+      return process(state, action.data)
   }
   return state;
 }

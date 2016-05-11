@@ -1,14 +1,9 @@
-export function setState(state) {
-  return {
-    type: 'SET_STATE',
-    state 
-  };
-}
+import cst from '../util/Constants'
 
-export function vote(entry) {
+export function fetch(interval = cst.fetchInterval) {
   return {
-    type: 'VOTE',
-    tally: entry 
+    type: cst.action.FETCH,
+    interval: interval
   };
 }
 

@@ -1,4 +1,5 @@
 import React            from 'react';
+import {connect}        from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme      from 'material-ui/styles/getMuiTheme';
 import {deepOrange500}  from 'material-ui/styles/colors';
@@ -15,12 +16,19 @@ class App extends React.Component {
     return (
         <MuiThemeProvider muiTheme={muiTheme}>
           <GridList cols={2} cellHeight={200} margin={100}>
-            <Lists />
-            <Lists />
+            <Lists data={this.props.data}/>
+            <Lists data={this.props.data}/>
           </GridList>
         </MuiThemeProvider>
           );
   }
 }
 
-export default App;
+function mapStateToProps(state){
+  return {
+    data: state.get('data'),
+  };
+}
+
+//export default App;
+export const AppContainer = connect(mapStateToProps)(App);
