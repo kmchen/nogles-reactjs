@@ -10,7 +10,6 @@ function newRequest(method, url) {
 var APIUtils = {
 
   do(method, url, option=null) {
-    console.log(method, url);
     return new Promise(function(resolve, reject) {
       option = option || {};
 
