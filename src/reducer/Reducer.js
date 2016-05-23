@@ -1,5 +1,9 @@
 import {List, Map} from 'immutable';
 
+import Constant from '../util/Constants'
+
+const cst = Constant;
+
 function setState(state, newState){
   return state.merge(newState);
 }
@@ -37,21 +41,22 @@ function resetVote(state){
   return state
 }
 
-function process(state, data){
-  if (data) {
-    return state.set('data', data);
-  }
-  return state;
+const initState = Map({
+  loginPage: true
+})
+
+const auth = (state, newState) => {
+  return state.merge(newState);
 }
 
-export default function Reducer(state = Map(), action) {
+export default function Reducer(state = initState, action) {
   switch(action.type) {
     case 'SET_STATE' :
-      return resetVote(setState(state, action.state))
-    case 'FETCH' :
-      return process(state, action.data)
+      return resetVote(setState(state, action.state));
+    case cst.action.INIT :
+      return state;
+    case cst.action.AUTH : 
+      return auth(state, action.update);
   }
   return state;
 }
-
-

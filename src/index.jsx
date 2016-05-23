@@ -5,19 +5,19 @@ import {Route, Router, hashHistory}  from 'react-router'
 import {createStore, applyMiddleware}  from 'redux';
 
 import {AppContainer} from './components/App';
-import getData      from './middleware/getData';
-import Reducer      from './reducer/Reducer';
-import apiUtil      from './util/APIUtils';
-import {fetch}      from './action/Actions'
+import getData        from './middleware/getData';
+import Reducer        from './reducer/Reducer';
+import apiUtil        from './util/APIUtils';
+import {INIT}        from './action/Actions'
 
 const createStoreWithMiddleware = applyMiddleware(
     getData(apiUtil)
     )(createStore);
 const store = createStoreWithMiddleware(Reducer);
 
-store.dispatch(fetch());
+store.dispatch(INIT());
 
-const routes = <Route >
+const routes = <Route>
   <Route path='/' component={AppContainer}></Route>
   </Route>;
 

@@ -1,12 +1,17 @@
+const basePort = ':7979';
+const baseIP = 'http://localhost';
+const baseURL = baseIP+basePort;
+
 const Constants = {
   fetchInterval: 10000,
   isPulling: true,
-  url: "http://localhost:7979/api/data",
+  urlLogin: baseURL+'/api/login',
   http: {
     GET: 'GET' 
   },
   action: {
-    FETCH: 'FETCH'
+    INIT: 'INIT',
+    AUTH: 'AUTH'
   }
 };
 
